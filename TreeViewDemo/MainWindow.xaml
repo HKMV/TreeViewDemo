@@ -9,7 +9,8 @@
     <Window.Resources>
         <HierarchicalDataTemplate x:Key="MyTreeItemTemplate" ItemsSource="{Binding childrenList}">
             <StackPanel  Orientation="Horizontal" Margin="2">
-                <CheckBox IsChecked="{Binding isCheck,Mode=TwoWay}" Content="{Binding itemName}" Command="{Binding CheckCommand,ElementName=TreeWindow}" CommandParameter="{Binding Path=DataContext, RelativeSource={RelativeSource  Mode=FindAncestor, AncestorLevel=1,AncestorType=StackPanel}}" />
+                <!--Binding为绑定本节点的数据源，{Binding Path=DataContext, RelativeSource={RelativeSource  Mode=FindAncestor, AncestorLevel=1,AncestorType=StackPanel}}为查找父级节点的数据源-->
+                <CheckBox IsChecked="{Binding isCheck,Mode=TwoWay}" Content="{Binding itemName}" Command="{Binding CheckCommand,ElementName=TreeWindow}" CommandParameter="{Binding}" />
                 <!-- <ContentPresenter   Content="{Binding itemName}" Margin="1,0" /> -->
             </StackPanel>
         </HierarchicalDataTemplate>
